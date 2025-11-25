@@ -20,8 +20,6 @@ export default function ProductDetailPage() {
     
     if (foundProduct) {
       setProduct(foundProduct);
-    } else if (products.length > 0) {
-      router.push('/products');
     }
   }, [params.id, products, router]);
 
