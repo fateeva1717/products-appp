@@ -6,13 +6,6 @@ import { useProductStore } from '@/store/useProductStore';
 import { Product } from '@/types/product';
 import Link from 'next/link';
 
-// Эта функция нужна для статической генерации
-export function generateStaticParams() {
-  // Для статической сборки возвращаем пустой массив
-  // Динамические страницы будут генерироваться на клиенте
-  return [];
-}
-
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
@@ -28,7 +21,6 @@ export default function ProductDetailPage() {
     if (foundProduct) {
       setProduct(foundProduct);
     } else if (products.length > 0) {
-      // Если продукты загружены, но конкретный не найден - перенаправляем
       router.push('/products');
     }
   }, [params.id, products, router]);
