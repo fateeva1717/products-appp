@@ -1,7 +1,6 @@
 'use client';
 
 import { Product } from '@/types/product';
-import { useRouter } from 'next/navigation';
 import { useProductStore } from '@/store/useProductStore';
 
 interface ProductCardProps {
@@ -9,15 +8,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const router = useRouter();
   const { toggleLike, deleteProduct } = useProductStore();
-
-  const handleCardClick = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('button')) {
-      return;
-    }
-    router.push(`/products/${product.id}`);
-  };
 
   const handleLikeClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -30,10 +21,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div 
-      className="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:shadow-lg transition-shadow"
-      onClick={handleCardClick}
-    >
+    <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
       {/* Картинка */}
       <div className="bg-gray-200 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
         <img 
