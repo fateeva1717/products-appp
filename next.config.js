@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: 'export', // важно!!!
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  distDir: 'out'
-}
+  basePath: '/spa-productsss',
+  assetPrefix: '/spa-productsss/',
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
